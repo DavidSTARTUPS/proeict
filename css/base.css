@@ -1,0 +1,179 @@
+/* ==========================================================================
+   BASE DESIGN TOKENS & GLOBAL STYLES — „Scrisoarea & Plumbul”
+   ========================================================================== */
+
+:root {
+  /* Gate */
+  --desk: #14110f;
+  --desk-hi: #2a211b;
+  --envelope: #e8dcc0;
+  --envelope-dark: #d5c7a5;
+  --wax: #8e1b1b;
+  --wax-hi: #c23a2b;
+
+  /* Act I */
+  --parchment: #f3ead6;
+  --parchment-dark: #e2d3b1;
+  --ink: #1e1a16;
+  --ink-faded: #463f38;
+  --red-ink: #a3201b;
+  --stamp-blue: #2c3e5c;
+  --curtain: #5e0f12;
+  --curtain-dark: #3b0709;
+  --curtain-light: #7e161a;
+  --brass: #b08d57;
+  --brass-hi: #d8b47a;
+
+  /* Act II */
+  --lead: #1a1d24;
+  --lead-mid: #3a3f4a;
+  --lead-hi: #8b919c;
+  --fog: #c9cdd3;
+  --fog-dim: #8b929e;
+  --marble-dark: #121418;
+  --marble-border: #444a56;
+  --bv-yellow: #b8a24a;
+  --bv-black: #0b0b0d;
+  --bv-violet: #4b3a5c;
+  --window-wood: #3a3128;
+  --steam: rgba(201, 205, 211, 0.55);
+
+  /* Act III */
+  --paper-type: #f6f1e6;
+  --ribbon: #241f1c;
+
+  /* Animation & Dynamics */
+  --ease-heavy: cubic-bezier(.7, 0, .84, 0);
+  --vignette: 0.5;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--desk);
+  color: var(--ink);
+  font-family: 'Courier Prime', monospace;
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 1.2s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* State Machine Scroll Lock */
+body[data-state="gate"] {
+  overflow: hidden;
+  height: 100vh;
+}
+
+body[data-state="act1"] {
+  overflow-y: auto;
+  background-color: #2b221a;
+}
+
+body[data-state="act2"],
+body[data-state="act3"] {
+  overflow-y: auto;
+  background-color: var(--lead);
+}
+
+/* ==========================================================================
+   ATMOSPHERIC FIXED LAYERS
+   ========================================================================== */
+
+.grain {
+  position: fixed;
+  inset: -50px;
+  width: calc(100% + 100px);
+  height: calc(100% + 100px);
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.085;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  animation: grainJitter 0.5s steps(3) infinite;
+}
+
+@keyframes grainJitter {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-3px, 4px); }
+  50% { transform: translate(4px, -2px); }
+  75% { transform: translate(-4px, -3px); }
+  100% { transform: translate(2px, 3px); }
+}
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9997;
+  background: radial-gradient(ellipse at center, transparent 35%, rgba(0, 0, 0, 0.95) 100%);
+  opacity: var(--vignette);
+  transition: opacity 0.8s ease;
+}
+
+/* Rain Canvas for Act II */
+#rain-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9995;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+/* Global Audio Mute Button */
+.audio-toggle-btn {
+  position: fixed;
+  top: 18px;
+  right: 22px;
+  z-index: 10000;
+  background: rgba(30, 26, 22, 0.85);
+  border: 1px solid var(--brass);
+  color: var(--brass-hi);
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-family: 'Courier Prime', monospace;
+  font-size: 13px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4), inset 0 0 4px rgba(176, 141, 87, 0.3);
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.audio-toggle-btn:hover {
+  background: rgba(45, 38, 32, 0.95);
+  border-color: var(--brass-hi);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.audio-toggle-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* Reduced motion considerations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .grain {
+    animation: none;
+  }
+}

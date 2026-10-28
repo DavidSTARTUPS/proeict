@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrisoarea &amp; Plumbul — Jurnal de lectură · David Rentea, XII E</title>
+
+  <!-- Typography: Playfair Display, Courier Prime, Homemade Apple, Cormorant Garamond -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Homemade+Apple&family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/gate.css">
+  <link rel="stylesheet" href="css/prolog.css">
+  <link rel="stylesheet" href="css/act1.css">
+  <link rel="stylesheet" href="css/act2.css">
+  <link rel="stylesheet" href="css/act3.css">
+</head>
+<body data-state="gate">
+
+  <!-- Atmospheric Fixed Layers -->
+  <div class="grain" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <canvas id="rain-canvas" aria-hidden="true"></canvas>
+  <div class="ink-spill-overlay" aria-hidden="true"></div>
+
+  <!-- Global Audio Toggle Button -->
+  <button class="audio-toggle-btn" aria-label="Comută sunetul ambiental">
+    <svg class="mute-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+    </svg>
+    <span class="mute-label">SUNET: ACTIV</span>
+  </button>
+
+  <!-- ======================================================================
+       0. OPENING GATE — „Trage scrisoarea lui Fănică”
+       ====================================================================== -->
+  <section id="gate" aria-label="Coperta dosarului - Punctul de intrare">
+    <div class="desk">
+      <div class="env-scene">
+        <div class="envelope">
+          <!-- Back Interior Panel -->
+          <div class="env-back" aria-hidden="true"></div>
+
+          <!-- Draggable Letter — sticks out exactly 60px -->
+          <div class="letter" id="letter" role="button" tabindex="0" aria-label="Trage scrisoarea în sus pentru a deschide dosarul">
+            <div class="letter-hint">
+              <p class="hand">Scumpa mea Zoe, <small style="font-family:'Courier Prime', monospace; font-size:11px; color:var(--red-ink);">(trage în sus...)</small></p>
+              <span class="drag-arrow" aria-hidden="true">▲</span>
+            </div>
+            
+            <div class="letter-body-preview" aria-hidden="true">
+              <div class="letter-full-text">
+                „Scumpa mea Zoe, venerabilul merge deseară la întrunire. Eu trebuie să stau acasă, pentru că aștept depeși de la București. Nu mă aștepta, prin urmare, și vino tu la cocoșelul tău, care te adoră, ca totdeauna, și te sărută de o mie de ori, Fănică”
+              </div>
+              <div class="letter-turmentat-note">
+                — scrisoare pierdută, găsită de cetățeanul turmentat —
+              </div>
+              <div class="letter-ink-stain"></div>
+            </div>
+          </div>
+
+          <!-- Envelope Front Pocket (V-fold with clip-path) -->
+          <div class="env-front">
+            <div class="env-sender">Expeditor: David Rentea, cl. a XII-a E</div>
+            <p class="address hand">
+              Cocoșelul meu, Fănică<br>
+              <small>(Prefectul Ștefan Tipătescu)</small>
+            </p>
+            <div class="stamp-postal">
+              <span>POȘTA</span>
+              <span>1884</span>
+            </div>
+          </div>
+
+          <!-- Open Flap & Wax Seal -->
+          <div class="env-flap" aria-hidden="true"></div>
+          <div class="wax-seal" aria-hidden="true">Z</div>
+        </div>
+      </div>
+      <button class="gate-skip-btn">Deschide direct dosarul</button>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       MAIN CONTENT CONTAINER
+       ====================================================================== -->
+  <main>
+
+    <!-- ====================================================================
+         ACT I — „O scrisoare pierdută” (I.L. Caragiale) & Prologul Autorului
+         ==================================================================== -->
+    <section id="act1" aria-label="Actul I — I.L. Caragiale & O scrisoare pierdută">
+      
+      <!-- Both Prologue & Newspaper fall together at the lever transition -->
+      <div class="act1-falling">
+
+        <!-- ----------------------------------------------------------------
+             PROLOG I: I.L. CARAGIALE (1852–1912)
+             ---------------------------------------------------------------- -->
+        <section class="prolog-caragiale" aria-label="Prolog I — I.L. Caragiale">
+          <div class="caragiale-brass-plate">
+            <h2>I.L. CARAGIALE (1852–1912)</h2>
+            <p>Maestrul Comediei și al Realismului Clasic</p>
+          </div>
+
+          <div class="caragiale-desk-grid">
+            
+            <!-- Mecanica A: Lupa care demască (Viziunea despre lume) -->
+            <div class="magnifier-section">
+              <div class="magnifier-header">
+                <h3>Viziunea despre lume</h3>
+                <span class="magnifier-sub">„Simț enorm și văz monstruos”</span>
+              </div>
+
+              <div class="newspaper-lens-container" aria-label="Ziar cu lupă interactivă">
+                <!-- Strat 1: Text oficial cuminte -->
+                <div class="text-layer-tame" aria-hidden="true">
+                  Oficialitatea veghează cu neobosit zel asupra bunelor rânduieli ale cetății. Toate discursurile patrioților noștri respiră armonie, devotament civic și probitate morală. Niciun interes personal nu tulbură pacea vieții publice, iar politica este o datorie nobilă...
+                </div>
+
+                <!-- Strat 2: Textul real dezvăluit sub lupă -->
+                <div class="text-layer-reveal">
+                  <p>
+                    Spirit extrem de lucid și ironic, Caragiale a fost un observator neiertător al societății românești moderne.
+                  </p>
+                  <p>
+                    A criticat prin râs și satiră defectele epocii sale: <span class="hl-red">corupția politicienilor</span>, <span class="hl-red">demagogia</span>, <span class="hl-red">prostia solemnă</span>, <span class="hl-red">șantajul</span> și dorința oamenilor de a părea mai cultivați sau mai importanți decât sunt în realitate.
+                  </p>
+                </div>
+
+                <!-- Lupa fizică manipulabilă -->
+                <div class="brass-magnifier" id="caragiale-lens" role="button" aria-label="Trage lupa pe text">
+                  <div class="brass-magnifier-handle"></div>
+                </div>
+
+                <div class="magnifier-stamp" aria-hidden="true">VĂZ MONSTRUOS</div>
+              </div>
+
+              <div class="magnifier-action-bar">
+                <span style="font-size:11px; color:#7d7265; font-style:italic;">Trage lupa de alamă peste pagină pentru a demasca textul real</span>
+                <button class="btn-scan-fallback">Privește prin lupă</button>
+              </div>
+            </div>
+
+            <!-- Mecanica B: Teancul de legitimații (Cine a fost și epoca sa) -->
+            <div class="cards-stack-section">
+              <div class="cards-stack-container" aria-label="Teanc de legitimații de serviciu">
+                
+                <!-- Legitimația 1 -->
+                <article class="id-card-item" data-card="1">
+                  <div class="id-card-header">
+                    <span class="id-card-dept">PRESA &amp; TIPOGRAFIA</span>
+                    <span class="id-card-stamp">OFICIAL</span>
+                  </div>
+                  <div>
+                    <h4 class="id-card-role-title">ZIARIST</h4>
+                    <p class="id-card-era">Redactor &amp; polemist la „Timpul”, „Moftul Român”</p>
+                  </div>
+                  <div class="id-card-footer">
+                    <span class="id-card-hint">Apasă pentru următoarea filă →</span>
+                    <span style="font-size:12px; font-weight:700;">1 / 4</span>
+                  </div>
+                </article>
+
+                <!-- Legitimația 2 -->
+                <article class="id-card-item" data-card="2">
+                  <div class="id-card-header">
+                    <span class="id-card-dept">ARTELE SCENICE</span>
+                    <span class="id-card-stamp">SCENĂ</span>
+                  </div>
+                  <div>
+                    <h4 class="id-card-role-title">SUFLEUR</h4>
+                    <p class="id-card-era">Cunoscător intim al culiselor teatrale și al actorilor</p>
+                  </div>
+                  <div class="id-card-footer">
+                    <span class="id-card-hint">Apasă pentru următoarea filă →</span>
+                    <span style="font-size:12px; font-weight:700;">2 / 4</span>
+                  </div>
+                </article>
+
+                <!-- Legitimația 3 -->
+                <article class="id-card-item" data-card="3">
+                  <div class="id-card-header">
+                    <span class="id-card-dept">MINISTERUL INSTRUCȚIUNII</span>
+                    <span class="id-card-stamp">ADMINISTRAȚIE</span>
+                  </div>
+                  <div>
+                    <h4 class="id-card-role-title">REVIZOR ȘCOLAR</h4>
+                    <p class="id-card-era">Observator direct al provinciei românești și al moravurilor</p>
+                  </div>
+                  <div class="id-card-footer">
+                    <span class="id-card-hint">Apasă pentru următoarea filă →</span>
+                    <span style="font-size:12px; font-weight:700;">3 / 4</span>
+                  </div>
+                </article>
+
+                <!-- Legitimația 4 -->
+                <article class="id-card-item" data-card="4">
+                  <div class="id-card-header">
+                    <span class="id-card-dept">TEATRUL NAȚIONAL</span>
+                    <span class="id-card-stamp">DIRECȚIUNE</span>
+                  </div>
+                  <div>
+                    <h4 class="id-card-role-title">DIRECTOR AL TEATRULUI NAȚIONAL DIN BUCUREȘTI</h4>
+                    <p class="id-card-era">Conducător al primei scene a țării (1888–1889)</p>
+                  </div>
+                  <div class="id-card-footer">
+                    <span class="id-card-hint">Apasă pentru dosarul complet →</span>
+                    <span style="font-size:12px; font-weight:700;">4 / 4</span>
+                  </div>
+                </article>
+
+              </div>
+
+              <!-- Fișa completă a autorului (Cine a fost și epoca sa) -->
+              <div class="caragiale-full-bio">
+                <p>
+                  <strong>Cine a fost și epoca sa:</strong> Este cel mai mare dramaturg din literatura română și unul dintre cei patru Mari Clasici din a doua jumătate a secolului al XIX-lea, alături de Mihai Eminescu, Ion Creangă și Ioan Slavici.
+                </p>
+                <p style="margin-top:10px;">
+                  <span class="junimea-badge">J</span> A făcut parte din celebra societate literară „Junimea”, condusă de criticul Titu Maiorescu, unde și-a citit marile piese de teatru.
+                </p>
+                <p style="margin-top:10px;">
+                  A avut meserii care l-au pus în contact direct cu toate categoriile sociale: a fost ziarist, sufleur, revizor școlar și director al Teatrului Național din București.
+                </p>
+              </div>
+            </div>
+
+            <!-- Mecanica C: Ruloul de bilete & Sertarele (Reperele operei) -->
+            <div class="works-roll-section">
+              <div class="works-label-tape">
+                <p><strong>Reperele operei sale:</strong> Este creatorul comediei românești de moravuri prin patru piese celebre: „O noapte furtunoasă”, „Conu Leonida față cu reacțiunea”, „O scrisoare pierdută” (1884) și „D-ale carnavalului”.</p>
+                <p style="margin-top:6px;">Pe lângă comedii, a scris schițe pline de umor („Vizită...”, „Dl. Goe...”, „Bubico”) și nuvele tragice, psihologice („În vreme de război”, „O făclie de Paște”).</p>
+              </div>
+
+              <div class="ticket-roll-container" aria-label="Rulou de bilete la teatru">
+                <div class="comedy-ticket">
+                  <span class="ticket-type">COMEDIE</span>
+                  <div class="ticket-play-name">„O noapte furtunoasă”</div>
+                  <span style="font-size:11px; color:#55483a;">1879 · Teatrul Național</span>
+                </div>
+
+                <div class="comedy-ticket">
+                  <span class="ticket-type">FARSA</span>
+                  <div class="ticket-play-name">„Conu Leonida față cu reacțiunea”</div>
+                  <span style="font-size:11px; color:#55483a;">1880 · Junimea</span>
+                </div>
+
+                <div class="comedy-ticket ticket-golden">
+                  <span class="ticket-premiere-badge">PREMIERĂ</span>
+                  <span class="ticket-type">COMEDIE DE MORAVURI</span>
+                  <div class="ticket-play-name">„O scrisoare pierdută” (1884)</div>
+                  <span style="font-size:11px; color:#6b4d0e; font-weight:700;">Capodopera comediei românești →</span>
+                </div>
+
+                <div class="comedy-ticket">
+                  <span class="ticket-type">COMEDIE</span>
+                  <div class="ticket-play-name">„D-ale carnavalului”</div>
+                  <span style="font-size:11px; color:#55483a;">1885 · Mascarada electorală</span>
+                </div>
+              </div>
+
+              <!-- Cele două sertare de birou -->
+              <div class="drawers-wrapper">
+                
+                <!-- Sertarul 1: Schițe -->
+                <div class="desk-drawer" role="button" tabindex="0" aria-label="Deschide sertarul cu schițe">
+                  <div class="drawer-front">
+                    <div class="drawer-title">
+                      <span>🎭 Masca Comediei — Schițe</span>
+                    </div>
+                    <div class="drawer-handle"></div>
+                  </div>
+                  <div class="drawer-content">
+                    Pe lângă comedii, a scris schițe pline de umor („Vizită...”, „Dl. Goe...”, „Bubico”).
+                  </div>
+                </div>
+
+                <!-- Sertarul 2: Nuvele -->
+                <div class="desk-drawer" role="button" tabindex="0" aria-label="Deschide sertarul cu nuvele">
+                  <div class="drawer-front">
+                    <div class="drawer-title">
+                      <span>🥀 Masca Tragediei — Nuvele</span>
+                    </div>
+                    <div class="drawer-handle"></div>
+                  </div>
+                  <div class="drawer-content">
+                    ...și nuvele tragice, psihologice („În vreme de război”, „O făclie de Paște”).
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ----------------------------------------------------------------
+             ZIARUL „RĂCNETUL CARPAȚILOR” (Opera & Personajul Ștefan Tipătescu)
+             ---------------------------------------------------------------- -->
+        <article class="newspaper">
+
+          <!-- Masthead -->
+          <header class="newspaper-header">
+            <div class="masthead-meta-top">
+              <span>Ziar independent</span>
+              <span>Anul I, No. 1</span>
+              <span>Capitala unui județ de munte, 1884</span>
+              <span>Prețul 10 bani</span>
+            </div>
+            <h1 class="newspaper-title">RĂCNETUL CARPAȚILOR</h1>
+            <div class="masthead-subtitle">
+              <span>Organ al grupului politic de opoziție și liber-schimbist</span>
+              <span>Redactor: David Rentea, clasa a XII-a E</span>
+            </div>
+          </header>
+
+          <!-- Main Body Grid: Articles & Sidebar -->
+          <div class="newspaper-body-grid">
+            
+            <!-- Left Main Columns -->
+            <div class="articles-main">
+              <div class="headline-article">
+                <h2 class="lead-headline">Datele Operei &amp; Încadrarea</h2>
+                <div class="article-columns">
+                  <p>
+                    <strong>Specia și curentul:</strong> Comedie de moravuri (genul dramatic), reprezentativă pentru realismul clasic din a doua jumătate a secolului al XIX-lea (1884).
+                  </p>
+                  <p>
+                    <strong>Trăsătura 1 (Comicul de moravuri și critica societății):</strong> Autorul ridiculizează politicienii corupți din provincie și arată cum aceștia își folosesc funcțiile publice doar pentru a-și păstra puterea și privilegiile nemeritate.
+                  </p>
+                  <p>
+                    <strong>Trăsătura 2 (Specificul teatral):</strong> În text nu există un narator; acțiunea este prezentată direct prin dialogul viu dintre personaje și prin notațiile autorului (didascalii).
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Sidebar: Editorial Box & Classifieds -->
+            <aside class="newspaper-sidebar">
+              <div class="boxed-editorial">
+                <span class="editorial-tag">Fondul Problemei</span>
+                <h3 class="editorial-title">Tema centrală</h3>
+                <p class="editorial-text">
+                  Viața politică și lupta necinstită pentru putere, strâns legată de tema corupției și a moralei de familie.
+                </p>
+              </div>
+
+              <div class="classifieds-box">
+                <div class="classifieds-title">Mica Publicitate &amp; Anunțuri</div>
+                <div class="classified-item">
+                  <strong>SE CAUTĂ:</strong> O scrisoare pierdută de amor, cu sigiliu de ceară roșie. Recompensă generoasă din partea unui înalt funcționar. Discreție deplină asigurată.
+                </div>
+                <div class="classified-item">
+                  <strong>TIPOGRAFIA CAȚAVENCU &amp; COMP.:</strong> Tipărim foi volante, manifeste electorale, orice dezvăluiri compromițătoare. Ieftin, rapid și patriot.
+                </div>
+                <div class="classified-item">
+                  <strong>ORDONANȚĂ POLIȚIENEASCĂ:</strong> Se interzice alegătorilor să gândească pe cont propriu. Ordinea este asigurată cu bățul și jandarmii.
+                </div>
+              </div>
+            </aside>
+          </div>
+
+          <!-- Modulul nou: Intriga (Obiectul-pretext) -->
+          <div class="intriga-pretext-box" role="button" tabindex="0" aria-label="Examinează intriga și scrisoarea de șantaj">
+            <div class="pushpin-brass" aria-hidden="true"></div>
+            <div class="fingerprint-catavencu" aria-hidden="true"></div>
+            <div class="intriga-tag">Mecanismul Dramatic</div>
+            <h3 class="intriga-title">Intriga (Obiectul-pretext)</h3>
+            <p style="font-size:14px; margin-bottom:8px;">
+              Pierderea unei scrisori de dragoste trimise de prefectul Ștefan Tipătescu către Zoe Trahanache (soția liderului politic local, Zaharia Trahanache):
+            </p>
+            <div class="intriga-quote">
+              „Scumpa mea Zoe, venerabilul merge deseară la întrunire. Eu trebuie să stau acasă, pentru că aștept depeși de la București. Nu mă aștepta, prin urmare, și vino tu la cocoșelul tău, care te adoră, ca totdeauna, și te sărută de o mie de ori, Fănică”
+            </div>
+            <div class="intriga-context">
+              Scrisoarea ajunge la adversarul politic Nae Cațavencu, care o folosește ca armă de șantaj pentru a obține postul de deputat.
+            </div>
+          </div>
+
+          <!-- Feature A: Dosar confidențial Ștefan Tipătescu (3 Flip Cards) -->
+          <section class="dossier-section" aria-label="Dosar confidențial Ștefan Tipătescu">
+            <div class="dossier-header">
+              <div class="dossier-title-wrap">
+                <h3>Construcția Personajului Principal: Prefectul Ștefan Tipătescu</h3>
+                <p class="dossier-subtitle">Serviciul de siguranță al județului — Fila de anchetă</p>
+              </div>
+              <div class="rubber-stamp" aria-hidden="true">STRICT CONFIDENȚIAL</div>
+            </div>
+
+            <div class="cards-grid">
+              <!-- Card 1: Statutul Social -->
+              <button class="dossier-card" aria-label="Statutul Social - Fila I" aria-pressed="false">
+                <div class="card-inner">
+                  <div class="card-face card-front">
+                    <span class="card-tab">FILA I</span>
+                    <h4 class="card-front-title">STATUT SOCIAL</h4>
+                    <div class="card-icon" aria-hidden="true">
+                      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                      </svg>
+                    </div>
+                    <div class="card-front-hint">
+                      <span>Apasă pentru examinare</span>
+                      <span>↺</span>
+                    </div>
+                  </div>
+                  <div class="card-face card-back">
+                    <span class="card-back-title">Raport: Statutul Social</span>
+                    <p class="card-back-text">
+                      Este prefectul județului, un moșier bogat și un politician influent, care conduce administrația și poliția locală ca pe propria moșie, după propriile interese.
+                    </p>
+                    <div class="card-thunk-stamp">CONFIRMAT</div>
+                  </div>
+                </div>
+              </button>
+
+              <!-- Card 2: Statutul Psihologic -->
+              <button class="dossier-card" aria-label="Statutul Psihologic - Fila II" aria-pressed="false">
+                <div class="card-inner">
+                  <div class="card-face card-front">
+                    <span class="card-tab">FILA II</span>
+                    <h4 class="card-front-title">STATUT PSIHOLOGIC</h4>
+                    <div class="card-icon" aria-hidden="true">
+                      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2a9 9 0 0 0-9 9c0 3.6 2.1 6.7 5.2 8.1L8 22h8l-.2-2.9C18.9 17.7 21 14.6 21 11a9 9 0 0 0-9-9z"/><path d="M9.5 9a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zM14.5 9a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/>
+                      </svg>
+                    </div>
+                    <div class="card-front-hint">
+                      <span>Apasă pentru examinare</span>
+                      <span>↺</span>
+                    </div>
+                  </div>
+                  <div class="card-face card-back">
+                    <span class="card-back-title">Raport: Statutul Psihologic</span>
+                    <p class="card-back-text">
+                      Este un om impulsiv, nervos și autoritar, care își pierde repede răbdarea atunci când este amenințat, dar este dominat de dragostea secretă pentru Zoe Trahanache.
+                    </p>
+                    <div class="card-thunk-stamp">CLASAT</div>
+                  </div>
+                </div>
+              </button>
+
+              <!-- Card 3: Statutul Moral -->
+              <button class="dossier-card" aria-label="Statutul Moral - Fila III" aria-pressed="false">
+                <div class="card-inner">
+                  <div class="card-face card-front">
+                    <span class="card-tab">FILA III</span>
+                    <h4 class="card-front-title">STATUT MORAL</h4>
+                    <div class="card-icon" aria-hidden="true">
+                      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 3v18"/><path d="M3 7l9-4 9 4"/><path d="M6 13l-3 4h6l-3-4z"/><path d="M18 13l-3 4h6l-3-4z"/>
+                      </svg>
+                    </div>
+                    <div class="card-front-hint">
+                      <span>Apasă pentru examinare</span>
+                      <span>↺</span>
+                    </div>
+                  </div>
+                  <div class="card-face card-back">
+                    <span class="card-back-title">Raport: Statutul Moral</span>
+                    <p class="card-back-text">
+                      Este corupt și abuziv în viața politică, deoarece folosește funcția publică și jandarmii în interes personal, însă rămâne sincer și loial în relația de iubire cu Zoe, pentru care este gata să renunțe chiar și la carieră. <span class="highlight-red">Trăsătura morală dominantă:</span> Corupția și tendința de a abuza de putere atunci când se simte amenințat.
+                    </p>
+                    <div class="card-thunk-stamp">TOP SECRET</div>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </section>
+
+          <!-- Feature B: Scena teatrală cu cele două scene semnificative -->
+          <section class="stage-section" aria-label="Cele două scene semnificative">
+            <div class="stage-title-wrap">
+              <h3 class="stage-title">Cele Două Scene Semnificative</h3>
+              <div class="stage-nav" role="tablist">
+                <button class="stage-tab-btn active" data-scene="1" role="tab" aria-selected="true">
+                  Scena 1 – Șantajul din biroul prefectului
+                </button>
+                <button class="stage-tab-btn" data-scene="2" role="tab" aria-selected="false">
+                  Scena 2 – Discursurile electorale din sala primăriei
+                </button>
+              </div>
+            </div>
+
+            <div class="proscenium-frame">
+              <div class="curtain curtain-l" aria-hidden="true"></div>
+              <div class="curtain curtain-r" aria-hidden="true"></div>
+              <div class="spotlight" aria-hidden="true"></div>
+
+              <div class="stage-content">
+                <!-- Scene 1 Script Pane -->
+                <div class="scene-pane active" id="scene-1" role="tabpanel">
+                  <div class="scene-header-line">
+                    <h4>Scena 1 – Șantajul din biroul prefectului</h4>
+                    <div class="scene-location">Locație: Cabinetul prefectului Ștefan Tipătescu</div>
+                  </div>
+
+                  <div class="script-sketch">
+                    <div class="script-sketch-label">Schiță scenică (Didascalii ilustrative):</div>
+                    Nae Cațavencu pășește sigur pe sine. Tipătescu <span class="didascalie">(nervos, se plimbă agitat<svg class="underline" viewBox="0 0 200 6"><path d="M0 3 Q 50 0, 100 3 T 200 3"/></svg>)</span>, măsurându-și rivalul. Când Cațavencu rostește numele scrisorii, prefectul sare ca ars <span class="didascalie">(izbucnind<svg class="underline" viewBox="0 0 100 6"><path d="M0 3 Q 25 0, 50 3 T 100 3"/></svg>)</span>: „Canalie!” și <span class="didascalie">(strigă spre ușă<svg class="underline" viewBox="0 0 120 6"><path d="M0 3 Q 30 0, 60 3 T 120 3"/></svg>)</span> la jandarmi.
+                  </div>
+
+                  <div class="scene-analysis-box">
+                    <div class="scene-analysis-title">Desfășurarea Faptelor:</div>
+                    <p class="scene-analysis-text">
+                      <strong>Ce se întâmplă:</strong> Nae Cațavencu vine în biroul lui Ștefan Tipătescu și îi cere sprijinul pentru a fi ales deputat. El amenință că, în caz contrar, va publica în ziar scrisoarea de dragoste trimisă de prefect către Zoe.
+                    </p>
+
+                    <div class="scene-significance-grid">
+                      <div class="sig-block sig-opera">
+                        <strong>Semnificația pentru operă:</strong>
+                        Arată că în societate viața politică se bazează pe minciună, compromis și șantaj murdar.
+                      </div>
+                      <div class="sig-block sig-personaj">
+                        <strong>Semnificația pentru personaj:</strong>
+                        Arată că Tipătescu este impulsiv, își pierde cumpătul și dă ordin să fie arestat ilegal Cațavencu pentru a-și salva funcția și imaginea.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Scene 2 Script Pane -->
+                <div class="scene-pane" id="scene-2" role="tabpanel">
+                  <div class="scene-header-line">
+                    <h4>Scena 2 – Discursurile electorale din sala primăriei</h4>
+                    <div class="scene-location">Locație: Marea sală a primăriei orășenești, întrunire publică</div>
+                  </div>
+
+                  <div class="script-sketch">
+                    <div class="script-sketch-label">Schiță scenică (Didascalii ilustrative):</div>
+                    Farfuridi și Cațavencu urlă de la tribună. În sală se aude <span class="didascalie">(zgomot mare în sală<svg class="underline" viewBox="0 0 140 6"><path d="M0 3 Q 35 0, 70 3 T 140 3"/></svg>)</span>. Trahanache se agită zadarnic, în timp ce <span class="didascalie">(clopoțelul sună întruna<svg class="underline" viewBox="0 0 160 6"><path d="M0 3 Q 40 0, 80 3 T 160 3"/></svg>)</span>. Se iscă o <span class="didascalie">(încăierare generală<svg class="underline" viewBox="0 0 140 6"><path d="M0 3 Q 35 0, 70 3 T 140 3"/></svg>)</span> orchestrată din umbră.
+                  </div>
+
+                  <div class="scene-analysis-box">
+                    <div class="scene-analysis-title">Desfășurarea Faptelor:</div>
+                    <p class="scene-analysis-text">
+                      <strong>Ce se întâmplă:</strong> Candidații țin discursuri pline de prostie, demagogie și cuvinte fără sens, iar adunarea electorală se termină cu o bătaie generală între susținători.
+                    </p>
+
+                    <div class="scene-significance-grid">
+                      <div class="sig-block sig-opera">
+                        <strong>Semnificația pentru operă:</strong>
+                        Ilustrează ridicolul clasei politice și arată că alegerile sunt doar un circ organizat pentru păcălirea cetățenilor naivi.
+                      </div>
+                      <div class="sig-block sig-personaj">
+                        <strong>Semnificația pentru personaj:</strong>
+                        Evidențiază viclenia lui Tipătescu, care manevrează poliția și voturile din umbră pentru a-și păstra puterea.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 5: Telegrame (Elemente de structură și compoziție) -->
+          <section class="telegrams-section" aria-label="Elemente de structură și compoziție">
+            <h3 class="telegrams-title">Elemente de Structură și Compoziție</h3>
+            <div class="telegrams-grid">
+              <div class="telegram">
+                <div class="telegram-meta">
+                  <span>SERVICIUL TELEGRAFIC</span>
+                  <span>DEP. BUCUREȘTI NO. 741</span>
+                </div>
+                <div class="telegram-body">
+                  <strong>1. Notațiile autorului (Didascaliile):</strong> Oferă indicații scenice prețioase despre decor, gesturi, tonul nervos și reacțiile personajelor. Ele ajută la transpunerea scenică a piesei și scot în evidență firea impulsivă a lui Tipătescu și ipocrizia politicienilor. <span class="telegram-stop">STOP.</span>
+                </div>
+              </div>
+
+              <div class="telegram">
+                <div class="telegram-meta">
+                  <span>SERVICIUL TELEGRAFIC</span>
+                  <span>DEP. JUDEȚEAN NO. 742</span>
+                </div>
+                <div class="telegram-body">
+                  <strong>2. Titlul operei („O scrisoare pierdută”):</strong> Numește obiectul-pretext al luptei politice. Rezumă intriga piesei și arată cum o simplă scrisoare de dragoste pierdută declanșează tot haosul politic și criza prefectului în fața șantajului. <span class="telegram-stop">STOP.</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 6: Maneta de fontă -->
+          <div class="transition-lever-wrap">
+            <div class="lever-plate" role="button" tabindex="0" aria-label="Trage maneta pentru a stinge luminile și a trece la Bacovia">
+              <div class="rivet top-left" aria-hidden="true"></div>
+              <div class="rivet top-right" aria-hidden="true"></div>
+              <div class="rivet bottom-left" aria-hidden="true"></div>
+              <div class="rivet bottom-right" aria-hidden="true"></div>
+
+              <p class="lever-engraved-text">
+                Stinge luminile scenei → Treci la universul lui George Bacovia (1916)
+              </p>
+
+              <div class="lever-mechanism">
+                <div class="lever-slot" aria-hidden="true"></div>
+                <div class="lever-handle" id="lever-handle" aria-hidden="true">
+                  <div class="lever-knob"></div>
+                  <div class="lever-shaft"></div>
+                </div>
+                <div class="lever-base-pivot" aria-hidden="true"></div>
+              </div>
+
+              <div class="lever-hint">Trage maneta spre dreapta sau apasă placa metalică</div>
+            </div>
+          </div>
+
+        </article>
+
+      </div> <!-- end .act1-falling -->
+
+      <!-- Lead Curtain descending during transition -->
+      <div class="lead-curtain" aria-hidden="true"></div>
+    </section>
+
+    <!-- ====================================================================
+         ACT II — „Plumb” (George Bacovia) & Prologul Autorului
+         ==================================================================== -->
+    <section id="act2" aria-label="Actul II — George Bacovia & Plumb">
+      
+      <!-- Drifting Fog Gradients -->
+      <div class="fog-layer fog-1" aria-hidden="true"></div>
+      <div class="fog-layer fog-2" aria-hidden="true"></div>
+
+      <div class="act2-container">
+
+        <!-- ----------------------------------------------------------------
+             PROLOG II: GEORGE BACOVIA (1881–1957)
+             ---------------------------------------------------------------- -->
+        <section class="prolog-bacovia" aria-label="Prolog II — George Bacovia">
+          <div class="bacovia-window-frame">
+            <span class="window-scratch-credit" aria-hidden="true">D.R. — XII E</span>
+            
+            <div class="bacovia-plate-title">
+              <h2>GEORGE BACOVIA (1881–1957)</h2>
+              <p>Poetul Simbolismului Românesc</p>
+            </div>
+
+            <!-- Mecanica A: Geamul aburit (Cine a fost și epoca sa) -->
+            <div class="window-pane-wrapper" aria-label="Fereastră aburită interactivă">
+              <div class="window-silhouette-bg" aria-hidden="true"></div>
+              
+              <div class="window-hidden-bio">
+                <div class="steamy-name-reveal">Gheorghe Vasiliu</div>
+                <p>
+                  <strong>Cine a fost și epoca sa:</strong> Pe numele său adevărat Gheorghe Vasiliu, s-a născut la Bacău și este cel mai important reprezentant al simbolismului în literatura română, la începutul secolului al XX-lea.
+                </p>
+                <p>
+                  A avut o fire retrasă, solitară și extrem de sensibilă, marcată de atmosfera apăsătoare și monotonă a orașului de provincie.
+                </p>
+              </div>
+
+              <!-- Canvas cu abur -->
+              <canvas id="steam-canvas"></canvas>
+            </div>
+
+            <div class="wipe-instructions-bar">
+              <span>Trage cu degetul sau mouse-ul pe sticlă pentru a șterge aburul rece</span>
+              <button class="btn-wipe-fallback">Șterge geamul</button>
+            </div>
+
+            <!-- Mecanica B: Cartea de plumb (Viziunea despre lume și universul poetic) -->
+            <div class="lead-book-section">
+              <div class="lead-book" role="button" tabindex="0" aria-label="Deschide volumul de plumb">
+                <div class="lead-book-cover">
+                  <div class="lead-book-cover-title">📖 Volumul „PLUMB” — 1916</div>
+                  <div class="lead-book-cover-meta">Apasă pentru a deschide filele de plumb ↷</div>
+                </div>
+                <div class="lead-book-pages">
+                  <p>
+                    <strong>Viziunea despre lume și universul poetic:</strong> A debutat editorial în anul 1916 cu volumul „Plumb”, care dă și titlul celei mai cunoscute poezii a sale.
+                  </p>
+                  <p style="margin-top:12px;">
+                    Poezia lui Bacovia nu descrie o natură frumoasă sau ocrotitoare, ci proiectează în lumea de afară o mare suferință sufletească: <span class="bv-image-tag">ploaia nesfârșită</span>, <span class="bv-image-tag">frigul</span>, <span class="bv-image-tag">vântul</span>, <span class="bv-image-tag">toamna târzie</span>, <span class="bv-image-tag">parcul pustiu</span> și <span class="bv-image-tag">cavoul</span> devin imagini ale unui suflet captiv și singur.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mecanica C: Cele 4 călimări (Specificul stilului & culorile obsesive) -->
+            <div class="ink-bottles-section">
+              <div class="bottles-header-tape">
+                <strong>Specificul stilului său (Simbolismul):</strong> Înlocuiește explicația directă cu sugestia, simbolul și muzicalitatea interioară monotonă. Folosește câteva culori obsesive cu rol de simbol: cenușiul/plumbul (greutatea sufletească și lipsa de scăpare), galbenul (boala și deznădejdea), negrul (moartea) și violetul (nevroza și apăsarea).
+              </div>
+
+              <div class="ink-bottles-row" role="group" aria-label="Călimările cu cerneluri simboliste">
+                <!-- Călimară Plumb -->
+                <button class="ink-bottle-btn bottle-lead" data-ink="lead" aria-label="Cenușiul / plumbul">
+                  <div class="bottle-glass"><div class="bottle-cap"></div></div>
+                  <span class="bottle-label">Cenușiu</span>
+                </button>
+
+                <!-- Călimară Galben -->
+                <button class="ink-bottle-btn bottle-yellow" data-ink="yellow" aria-label="Galbenul">
+                  <div class="bottle-glass"><div class="bottle-cap"></div></div>
+                  <span class="bottle-label">Galben</span>
+                </button>
+
+                <!-- Călimară Negru -->
+                <button class="ink-bottle-btn bottle-black" data-ink="black" aria-label="Negrul">
+                  <div class="bottle-glass"><div class="bottle-cap"></div></div>
+                  <span class="bottle-label">Negru</span>
+                </button>
+
+                <!-- Călimară Violet -->
+                <button class="ink-bottle-btn bottle-violet" data-ink="violet" aria-label="Violetul">
+                  <div class="bottle-glass"><div class="bottle-cap"></div></div>
+                  <span class="bottle-label">Violet</span>
+                </button>
+              </div>
+
+              <div class="spilled-ink-meaning">
+                Apasă pe o călimară pentru a vărsa culoarea și a-i afla semnificația simbolică...
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ----------------------------------------------------------------
+             ANALIZA POEZIEI „PLUMB”
+             ---------------------------------------------------------------- -->
+        <header class="poem-header">
+          <h2 class="poem-main-title">PLUMB</h2>
+          <p class="poem-subtitle">Textul Integral al Poeziei (1916)</p>
+        </header>
+
+        <!-- Two-Column Grid: Poem vs Marble Analysis Plaques -->
+        <div class="act2-grid">
+          
+          <!-- Connector SVG for desktop -->
+          <svg id="connector-svg" aria-hidden="true"></svg>
+
+          <!-- Left Column: The 2-Stanza Poem with 6 Plumb occurrences -->
+          <div class="poem-col">
+            <div class="poem-frame">
+              
+              <!-- Stanza I: Exteriorul -->
+              <div class="stanza stanza-1">
+                <span class="stanza-label">Strofa I</span>
+                <p class="poem-line">
+                  Dormeau adânc sicriele de <button class="plumb" data-i="1" aria-label="plumb 1">plumb</button>,
+                </p>
+                <p class="poem-line">
+                  Și flori de <button class="plumb" data-i="2" aria-label="plumb 2">plumb</button> și funerar vestmânt —
+                </p>
+                <p class="poem-line">
+                  Stam singur în cavou... și era vânt...
+                </p>
+                <p class="poem-line">
+                  Și scârțâiau coroanele de <button class="plumb" data-i="3" aria-label="plumb 3">plumb</button>.
+                </p>
+              </div>
+
+              <!-- Symmetry Divider -->
+              <div class="symmetry-divider" aria-hidden="true">
+                <span class="symmetry-tag">Organizare Simetrică: Exterior | Interior</span>
+              </div>
+
+              <!-- Stanza II: Interiorul -->
+              <div class="stanza stanza-2">
+                <span class="stanza-label">Strofa a II-a</span>
+                <p class="poem-line">
+                  Dormea întors amorul meu de <button class="plumb" data-i="4" aria-label="plumb 4">plumb</button>
+                </p>
+                <p class="poem-line">
+                  Pe flori de <button class="plumb" data-i="5" aria-label="plumb 5">plumb</button>, și-am început să-l strig —
+                </p>
+                <p class="poem-line">
+                  Stam singur lângă mort... și era frig...
+                </p>
+                <p class="poem-line">
+                  Și-i atârnau aripile de <button class="plumb" data-i="6" aria-label="plumb 6">plumb</button>.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right Column: Marble Analysis Plaques -->
+          <div class="analysis-col">
+            
+            <div class="analysis-placeholder">
+              Apasă sau trage în jos cuvintele metalice din textul poeziei pentru a coborî greutatea plumbului și a dezvălui analiza critică.
+            </div>
+
+            <!-- Panel 1: Specia și curentul -->
+            <article class="analysis-panel" id="panel-1">
+              <div class="panel-header">
+                <span class="panel-number">Cuvântul I (sicriele de plumb)</span>
+                <h3 class="panel-title">Specia și curentul</h3>
+              </div>
+              <p class="panel-body">
+                Artă poetică simbolistă, apărută la începutul secolului al XX-lea, în volumul de debut „Plumb” (1916).
+              </p>
+            </article>
+
+            <!-- Panel 2: Imaginea 1 – Cavoul și lumea exterioară -->
+            <article class="analysis-panel" id="panel-2">
+              <div class="panel-header">
+                <span class="panel-number">Cuvântul II (flori de plumb — S1)</span>
+                <h3 class="panel-title">Imaginea 1 – Cavoul și lumea exterioară (Strofa I)</h3>
+              </div>
+              <div class="panel-body">
+                <p style="font-family:'Cormorant Garamond', serif; font-size:18px; font-style:italic; color:#e2e6ed; margin-bottom:8px;">
+                  „Dormeau adânc sicriele de plumb” / „Stam singur în cavou... și era vânt...”
+                </p>
+                <p>
+                  <strong>Semnificație:</strong> Vocea poetică descrie un spațiu închis, un cavou înghețat și întunecat, unde totul pare împietrit, iar vântul sporește sentimentul de singurătate. Această imagine sugerează blocarea omului într-o lume ostilă, din care nu există nicio posibilitate de salvare.
+                </p>
+              </div>
+            </article>
+
+            <!-- Panel 3: Trăsătura 1 (Simbolul central și sugestia) -->
+            <article class="analysis-panel" id="panel-3">
+              <div class="panel-header">
+                <span class="panel-number">Cuvântul III (coroanele de plumb)</span>
+                <h3 class="panel-title">Trăsătura 1 (Simbolul central și sugestia)</h3>
+              </div>
+              <p class="panel-body">
+                Cuvântul „plumb” este repetat obsesiv de șase ori (de trei ori în fiecare strofă) și sugerează o stare sufletească de greutate, apăsare și tristețe fără ieșire.
+              </p>
+            </article>
+
+            <!-- Panel 4: Imaginea 2 – Moartea iubirii și lumea interioară -->
+            <article class="analysis-panel" id="panel-4">
+              <div class="panel-header">
+                <span class="panel-number">Cuvântul IV (amorul meu de plumb)</span>
+                <h3 class="panel-title">Imaginea 2 – Moartea iubirii și lumea interioară (Strofa a II-a)</h3>
+              </div>
+              <div class="panel-body">
+                <p style="font-family:'Cormorant Garamond', serif; font-size:18px; font-style:italic; color:#e2e6ed; margin-bottom:8px;">
+                  „Dormea întors amorul meu de plumb” / „Și-i atârnau aripile de plumb.”
+                </p>
+                <p>
+                  <strong>Semnificație:</strong> Vocea poetică își privește iubirea pierdută ca pe un trup neînsuflețit și încearcă să o strige în zadar, în timp ce aripile acesteia atârnă grele spre pământ. Momentul ilustrează dispariția oricărei speranțe și arată că până și dragostea a murit.
+                </p>
+              </div>
+            </article>
+
+            <!-- Panel 5: Trăsătura 2 (Muzicalitatea interioară monotonă) -->
+            <article class="analysis-panel" id="panel-5">
+              <div class="panel-header">
+                <span class="panel-number">Cuvântul V (flori de plumb — S2)</span>
+                <h3 class="panel-title">Trăsătura 2 (Muzicalitatea interioară monotonă)</h3>
+              </div>
+              <p class="panel-body">
+                Ritmul monoton al versurilor și repetarea sunetelor închise transmit cititorului o senzație apăsătoare de frig și de pustiu sufletesc.
+              </p>
+            </article>
+
+            <!-- Panel 6: Tema centrală -->
+            <article class="analysis-panel" id="panel-6">
+              <div class="panel-header">
+                <span class="panel-number">Cuvântul VI (aripile de plumb)</span>
+                <h3 class="panel-title">Tema centrală</h3>
+              </div>
+              <p class="panel-body">
+                Singurătatea și izolarea totală a omului într-o lume rece, strâns legată de tema morții și a sfârșitului iubirii.
+              </p>
+            </article>
+
+            <!-- ★ Auto-Unlocked Composition Panel after all 6 -->
+            <article class="composition-panel" id="panel-comp">
+              <h4>Elemente de Compoziție și Structură (Deblocare Totală)</h4>
+              <div class="composition-item">
+                <strong>1. Titlul operei („Plumb”):</strong>
+                Este format dintr-un singur substantiv nearticulat, care denumește un metal greu, rece și de culoare cenușie. Titlul rezumă atmosfera sumbră a textului și sugerează greutatea apăsătoare care strivește sufletul.
+              </div>
+              <div class="composition-item">
+                <strong>2. Organizarea simetrică în două strofe:</strong>
+                Prima strofă prezintă lumea exterioară și cavoul rece, iar a doua strofă prezintă lumea interioară și moartea iubirii. Această simetrie arată cum tristețea din jur cuprinde treptat tot sufletul, fapt ce demonstrează că nu există scăpare nici în afară, nici înăuntru.
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- Progress Indicator: 6 Lead Weights with exact label -->
+        <div style="text-align:center; margin-top:35px;">
+          <div class="weights-progress-bar" aria-label="Progresul greutăților de plumb">
+            <div class="weight-indicator"><div class="weight-icon"></div><span class="weight-label">I</span></div>
+            <div class="weight-indicator"><div class="weight-icon"></div><span class="weight-label">II</span></div>
+            <div class="weight-indicator"><div class="weight-icon"></div><span class="weight-label">III</span></div>
+            <div class="weight-indicator"><div class="weight-icon"></div><span class="weight-label">IV</span></div>
+            <div class="weight-indicator"><div class="weight-icon"></div><span class="weight-label">V</span></div>
+            <div class="weight-indicator"><div class="weight-icon"></div><span class="weight-label">VI</span></div>
+          </div>
+          <p style="font-family:'Courier Prime', monospace; font-size:12px; color:#7d8596; margin-top:10px;">
+            de șase ori (de trei ori în fiecare strofă)
+          </p>
+        </div>
+
+        <!-- Prompt to Act III -->
+        <div class="act3-scroll-prompt">
+          <button class="scroll-btn-act3">↓ Coală finală (Reflecție comparativă)</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         ACT III — THE TYPEWRITER (Reflecție comparativă)
+         ==================================================================== -->
+    <section id="act3" aria-label="Actul III — Reflecție finală la mașina de scris">
+      
+      <!-- Desk Lamp Warm Light Cone -->
+      <div class="desk-lamp-cone" aria-hidden="true"></div>
+
+      <div class="act3-container">
+        
+        <!-- Masca de comedie și Fața de plumb -->
+        <div class="mask-stage-wrap">
+          <div class="string-nail" aria-hidden="true"></div>
+          <div class="mask-string" aria-hidden="true"></div>
+          
+          <div class="lead-bare-face" aria-label="Fața de plumb (omul fără mască)"></div>
+
+          <div class="comedy-mask-hanging" role="button" tabindex="0" aria-label="Masca de comedie">
+            <div class="mask-porcelain-body">
+              <div class="mask-eye-left"></div>
+              <div class="mask-eye-right"></div>
+              <div class="mask-smile-broad"></div>
+            </div>
+          </div>
+
+          <div class="mask-shards-wrap" aria-hidden="true">
+            <div class="shard"></div>
+            <div class="shard"></div>
+            <div class="shard"></div>
+            <div class="shard"></div>
+            <div class="shard"></div>
+          </div>
+        </div>
+
+        <!-- Controls Bar -->
+        <div class="typewriter-controls">
+          <span class="typewriter-status-tag">În așteptarea derulării...</span>
+          <button class="skip-typing-btn">Sări peste (Afișează textul complet)</button>
+        </div>
+
+        <!-- Typewriter Apparatus -->
+        <div class="typewriter-chassis">
+          
+          <!-- Platen Roller Cylinder -->
+          <div class="platen-roller-wrap" aria-hidden="true">
+            <div class="platen-knob-left"></div>
+            <div class="platen-roller"></div>
+            <div class="platen-knob-right"></div>
+          </div>
+
+          <!-- Paper Slot with Reflection Sheet in Two Columns -->
+          <div class="typewriter-paper-slot">
+            <article class="paper-sheet" id="reflection-paper">
+              
+              <h3 class="reflection-title">
+                REFLECȚIE COMPARATIVĂ FINALĂ — Două moduri opuse de a privi criza omului în lume
+              </h3>
+
+              <div class="typed-content" id="typed-content">
+                <div class="reflection-columns">
+                  
+                  <!-- Coloana stângă: Caragiale -->
+                  <div class="refl-col refl-col-caragiale">
+                    <h4 class="refl-col-title">La I.L. Caragiale (Lumea măștilor sociale):</h4>
+                    <p class="typed-p">
+                      Criza este exterioară și zgomotoasă. Pierderea unei scrisori demască corupția, șantajul și abuzul de putere al lui Ștefan Tipătescu, însă totul se termină printr-o împăcare falsă și veselă, care ascunde defectele societății sub masca comediei.
+                    </p>
+                  </div>
+
+                  <!-- Coloana dreaptă: Bacovia -->
+                  <div class="refl-col refl-col-bacovia">
+                    <h4 class="refl-col-title">La George Bacovia (Lumea izolării interioare):</h4>
+                    <p class="typed-p">
+                      Criza este mută și profund sufletească. Omul nu mai poartă măști sociale și nu mai luptă pentru putere, ci se retrage singur într-un univers închis și înghețat, unde greutatea „plumbului” stinge orice speranță.
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="reflection-signature">
+                <span class="handwritten-sign">Jurnal de lectură — David Rentea, clasa a XII-a E</span>
+              </div>
+
+            </article>
+          </div>
+
+          <!-- Ribbon Guide Bar -->
+          <div class="ribbon-guide" aria-hidden="true">
+            <div class="ribbon-strike-center"></div>
+          </div>
+
+        </div>
+
+        <div class="project-footer-note">
+          „Scrisoarea &amp; Plumbul” — Proiect realizat conform programei de limba și literatura română pentru Bacalaureat.
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- External Libraries via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <!-- Application Logic Modules -->
+  <script src="js/audio.js"></script>
+  <script src="js/gate.js"></script>
+  <script src="js/prolog-caragiale.js"></script>
+  <script src="js/act1.js"></script>
+  <script src="js/prolog-bacovia.js"></script>
+  <script src="js/act2.js"></script>
+  <script src="js/act3.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
